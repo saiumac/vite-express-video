@@ -7,5 +7,11 @@ then
     sudo yum install -y nodejs
 fi
 
+# Clear npm cache
+npm cache clean --force
+
+# Remove node_modules and package-lock.json if they exist (to prevent conflicts)
+rm -rf node_modules package-lock.json
+
 # Install dependencies
 npm install
