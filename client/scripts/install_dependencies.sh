@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /var/www/frontend
+cd /var/www/vite-express-video/client
 npm install
