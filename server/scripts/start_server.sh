@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /var/www/backend
+cd /var/www/vite-express-video/server
 pm2 start server.js
