@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /var/www/frontend
-nohup npm run preview &
+cd /var/www/vite-express-video/client
+npm run build
