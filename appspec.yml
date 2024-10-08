@@ -1,0 +1,35 @@
+version: 0.0
+os: linux
+files:
+  # Copy the client (Vite) files
+  - source: /client
+    destination: /var/www/vite-express-video/client
+
+  # Copy the server (Express) files
+  - source: /server
+    destination: /var/www/vite-express-video/server
+
+hooks:
+  BeforeInstall:
+    # Install server dependencies (Express)
+    - location: server/scripts/install_dependencies.sh
+      timeout: 300
+
+    # Install front-end dependencies (Vite)
+    - location: client/scripts/install_dependencies.sh
+      timeout: 300
+
+  AfterInstall:
+    # Build the front-end (Vite)
+    - location: client/scripts/build_frontend.sh
+      timeout: 300
+
+  ApplicationStart:
+    # Start the server (Express)
+    - location: server/scripts/start_server.sh
+      timeout: 300
+
+  ApplicationStop:
+    # Stop the server (Express)
+    - location: server/scripts/stop_server.sh
+      timeout: 300
